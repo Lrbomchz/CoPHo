@@ -1,0 +1,16 @@
+defaults:
+    - _self_
+    - general : general_default_comm
+    - model : discrete_comm
+    - train : train_default_comm
+    - dataset : comm20
+
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: ../outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}-${general.name}
+
+
+
+

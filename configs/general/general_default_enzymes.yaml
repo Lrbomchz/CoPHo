@@ -1,0 +1,38 @@
+# General settings
+
+name: 'graph-tf-model-test-enzymes-cond-homo'      # Warning: 'debug' and 'test' are reserved name that have a special behavior
+
+wandb: 'online'             # online | offline | disabled
+gpus: 1                     # Multi-gpu is not implemented on this branch
+
+
+resume: null            # If resume, path to ckpt file from outputs directory in main directory
+#test_only: /home/xigongli/zzy/DiGress/outputs/2025-04-29/13-47-16-graph-tf-model-test-comm/checkpoints/graph-tf-model-test-comm/last-v1.ckpt    # null     # Use absolute path
+# test_only: /home/xigongli/zzy/DiGress/outputs/2025-05-05/12-04-37-graph-tf-model-test-comm/checkpoints/graph-tf-model-test-comm/last.ckpt
+test_only: /home/xigongli/zzy/DiGress/outputs/2025-05-06/04-56-36-graph-tf-model-test-enzymes/checkpoints/graph-tf-model-test-enzymes/last.ckpt
+# 训练完自动会测一遍
+
+# guidance_path: /home/xigongli/zzy/gnn/graph_distance_model_lr0.00015_ep50_bs256_dim256_layer6_d0.1.pth # null
+guidance_path: /home/xigongli/zzy/gnn_struct/outputs/struct_clustering_enzymes_new.pth
+
+# 这里的参数在训练完后紧接着执行的测试中使用
+check_val_every_n_epochs: 1000
+sample_every_val: 10
+val_check_interval: null
+# 验证集参数
+samples_to_generate:  22       # We advise to set it to 2 x batch_size maximum
+samples_to_save: 20
+chains_to_save: 1
+log_every_steps: 50
+number_chain_steps: 50        # Number of frames in each gif
+
+
+# final_model_samples_to_generate: 10000
+# final_model_samples_to_save: 30 # wandb graph
+# final_model_chains_to_save: 20 # wandb chain
+
+final_model_samples_to_generate: 128
+final_model_samples_to_save: 128
+final_model_chains_to_save: 2
+
+evaluate_all_checkpoints: False

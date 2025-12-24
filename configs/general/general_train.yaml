@@ -1,0 +1,34 @@
+# General settings
+
+name: 'graph-tf-model'      # Warning: 'debug' and 'test' are reserved name that have a special behavior
+
+wandb: 'online'             # online | offline | disabled
+gpus: 1                     # Multi-gpu is not implemented on this branch
+
+
+resume: null            # If resume, path to ckpt file from outputs directory in main directory
+test_only: null   # /data/ssd1/xigongli/zzy/planar_debug/checkpoints/planar.ckpt      # Use absolute path
+# 训练完自动会测一遍
+
+# 这里的参数在训练完后紧接着执行的测试中使用
+check_val_every_n_epochs: 5
+sample_every_val: 4
+val_check_interval: null
+# 验证集参数
+samples_to_generate: 10       # We advise to set it to 2 x batch_size maximum
+samples_to_save: 2 # 20
+chains_to_save: 0
+log_every_steps: 50
+number_chain_steps: 50        # Number of frames in each gif
+
+
+# test测
+# final_model_samples_to_generate: 10000
+# final_model_samples_to_save: 30 # wandb graph
+# final_model_chains_to_save: 20 # wandb chain
+
+final_model_samples_to_generate: 64
+final_model_samples_to_save: 32
+final_model_chains_to_save: 2
+
+evaluate_all_checkpoints: False

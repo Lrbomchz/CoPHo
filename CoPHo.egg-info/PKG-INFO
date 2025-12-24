@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: CoPHo
+Version: 1.0.1
+Summary: CoPHo: Classifier-guided Conditional Topology Generation with Persistent Homology
+Author: G.X., Y.T., M.Y.
+Author-email: author@bupt.edu.cn
+License-File: LICENSE
